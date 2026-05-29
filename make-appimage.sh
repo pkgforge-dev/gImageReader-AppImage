@@ -14,7 +14,8 @@ export DESKTOP=/usr/share/applications/gimagereader-qt6.desktop
 # Deploy dependencies
 quick-sharun \
 	/usr/bin/gimagereader-qt6 \
-	/usr/bin/tesseract
+	/usr/bin/tesseract        \
+	/usr/share/tessdata
 
 # Additional changes can be done in between here
 
