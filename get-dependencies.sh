@@ -10,9 +10,7 @@ pacman -Syu --noconfirm \
 	gimagereader-qt    \
 	kvantum            \
 	lxqt-qtplugin      \
-	qt6ct              \
-	tesseract-data-eng \
-	tesseract-data-osd
+	qt6ct
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -26,12 +24,9 @@ get-debloated-pkgs --add-common --prefer-nano
 # Use tessdata_fast script models since they are way lighter than what archlinux provides
 echo "Downloading tesseract script models..."
 echo "---------------------------------------------------------------"
-dst_dir=/usr/share/tessdata
-tessdata_source=https://github.com/tesseract-ocr/tessdata_fast/raw/main/script
-for lang in Latin Cyrillic Arabic Devanagari HanS HanT Japanese Hangul Greek; do
-	echo "Downloading $lang.traineddata"
-	wget --retry-connrefused --tries=30 "$tessdata_source"/"$lang".traineddata -O "$dst_dir"/"$lang".traineddata
-done
+rm -rf /usr/share/tessdata
+git clone --depth 1 https://github.com/tesseract-ocr/tessdata_fast /usr/share/tessdata
+rm -rf /usr/share/tessdata/.git
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #
