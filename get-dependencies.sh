@@ -8,6 +8,11 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
 	gimagereader-qt    \
+	hunspell-de        \
+	hunspell-en_us     \
+	hunspell-es_any    \
+	hunspell-fr        \
+	hunspell-ru        \
 	kvantum            \
 	lxqt-qtplugin      \
 	qt6ct

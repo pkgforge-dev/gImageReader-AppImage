@@ -13,10 +13,13 @@ export DESKTOP=/usr/share/applications/gimagereader-qt6.desktop
 
 # Deploy dependencies
 quick-sharun \
-	/usr/bin/gimagereader-qt6 \
-	/usr/bin/tesseract        \
-	/usr/share/tessdata       \
-	/usr/share/doc/gimagereader
+	/usr/bin/gimagereader-qt6   \
+	/usr/bin/tesseract          \
+	/usr/share/tessdata         \
+	/usr/share/hunspell         \
+	/usr/share/enchant-2        \
+	/usr/share/doc/gimagereader \
+	/usr/lib/enchant-2/*hunspell.so*
 
 # Additional changes can be done in between here
 
