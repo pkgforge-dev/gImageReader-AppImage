@@ -15,7 +15,8 @@ export DESKTOP=/usr/share/applications/gimagereader-qt6.desktop
 quick-sharun \
 	/usr/bin/gimagereader-qt6 \
 	/usr/bin/tesseract        \
-	/usr/share/tessdata
+	/usr/share/tessdata       \
+	/usr/share/doc/gimagereader
 
 # Additional changes can be done in between here
 
