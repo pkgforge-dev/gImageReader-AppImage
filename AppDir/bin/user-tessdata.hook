@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# make sure our bundled data files can be seen by the app
+_tess_userdir=$CONFIGDIR/tessdata
+mkdir -p "$_tess_userdir"
+for f in "$APPDIR"/share/tessdata/*.traineddata; do
+	[ -f "$f" ] || continue
+	_dst=${_tess_userdir}/${f##*/}
+	[ -f "$_dst" ] || ln -s "$f" "$_dst" || :
+done
+
+# make sure the app does not attempt to use packagekit to manage languages
+_gimage_userconf=$CONFIGDIR/gImageReader/gImageReader.conf
+if [ ! -f "$_gimage_userconf" ]; then
+	mkdir -p "${_gimage_userconf%/*}"
+	echo '[General]'  >  "$_gimage_userconf"
+	echo 'datadirs=1' >> "$_gimage_userconf"
+fi
